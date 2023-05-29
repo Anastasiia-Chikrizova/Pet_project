@@ -10,19 +10,22 @@ jobs:
     strategy:
       matrix:
         node-version: [ 17.x ]
+        cache: 'yarn'
     steps:
       - uses: actions/checkout@v2
       - name: Starting Node.js ${{matrix.node-version}}
         uses: actions/setup-node@v1
         with:
           node-version: ${{matrix.node-version}}
+      - name: Install Yarn
+        run: npm install -g yarn
       - name: install modules
-        run: npm install
+        run: yarn install
       - name: build production project
-        run: npm run build:prod
+        run: yarn build:prod
       - name: linting typescript
-        run: npm run lint:ts
+        run: yarn lint:ts
       - name: linting css
-        run: npm run lint:css
+        run: yarn lint:css
       - name: unit testing
-        run: npm run test:unit
+        run: yarn test:unit
