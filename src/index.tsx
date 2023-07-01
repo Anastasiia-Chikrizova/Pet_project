@@ -1,5 +1,5 @@
 import { render } from 'react-dom';
-
+import 'app/styles/index.scss';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { BrowserRouter } from 'react-router-dom';
 import App from './app/App';
