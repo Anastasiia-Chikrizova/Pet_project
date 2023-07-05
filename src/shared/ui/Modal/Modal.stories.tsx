@@ -1,32 +1,28 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Modal } from 'shared/ui/Modal/Modal';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { RouterDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator';
-import { Modal } from 'shared/ui/Modal/Modal';
 
-const meta: Meta<typeof Modal> = {
+export default {
     title: 'shared/Modal',
     component: Modal,
-    argTypes: {},
-    decorators: [RouterDecorator],
-};
-
-export default meta;
-type Story = StoryObj<typeof Modal>;
-
-export const Light: Story = {
-    args: {
-        isOpen: true,
-        children: 'lorem',
+    argTypes: {
+        backgroundColor: { control: 'color' },
     },
-    decorators: [ThemeDecorator(Theme.LIGHT)],
+} as ComponentMeta<typeof Modal>;
+
+const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+    isOpen: true,
+    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam.\n ',
 };
 
-export const Dark: Story = {
-    args: {
-        isOpen: true,
-        children: 'lorem',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
+export const Dark = Template.bind({});
+Dark.args = {
+    isOpen: true,
+    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam.\n ',
 };
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
