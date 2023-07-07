@@ -1,5 +1,5 @@
 {
-  "name": "production-project",
+  "name": "pet_project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,6 +23,10 @@
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
     "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anastasiia-Chikrizova/Pet_project.git"
   },
   "keywords": [],
   "author": "",
